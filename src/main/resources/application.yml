@@ -19,7 +19,7 @@ zuul:
   routes:
     tuk-management-service:
       path: /management/**
-      url: https://lsp-tuk-services.herokuapp.com/
+      serviceId: lsp-tuk
     acessor-management-service:
       path: /user/**
       serviceId: acessor-management-service
