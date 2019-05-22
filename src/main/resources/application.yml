@@ -11,6 +11,8 @@ eureka:
       defaultZone: ${EUREKA_URL:http://user:asdqwe123@localhost:8761}/eureka/
       registerWithEureka: false
       fetchRegistry: true
+    healthcheck:
+      enabled: true
 server:
   port: 8080
 zuul:
@@ -19,7 +21,7 @@ zuul:
   routes:
     tuk-management-service:
       path: /management/**
-      serviceId: lsp-tuk
+      serviceId: lsp-tuk-service
     acessor-management-service:
       path: /user/**
       serviceId: acessor-management-service
