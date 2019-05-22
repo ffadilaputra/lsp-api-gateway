@@ -1,7 +1,7 @@
 eureka:
   client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
+    serviceUrl:
+      defaultZone: ${EUREKA_URL:http://user:asdqwe123@localhost:8761}/eureka/
 server:
   port: 8080
 spring:
@@ -13,10 +13,19 @@ zuul:
   routes:
     tuk-management-service:
       path: /management/**
-      serviceId: tuk-management-service
+      serviceId: lsp-tuk-service
     acessor-management-service:
       path: /user/**
       serviceId: acessor-management-service
+
+---
+spring:
+  profiles: heroku
+eureka:
+  instance:
+    hostname: ${DOMAIN_NAME}
+    nonSecurePort: 80
+  password: ${USER_PASSWORD:password}
 
 
 
