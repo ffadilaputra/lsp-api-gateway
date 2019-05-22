@@ -4,11 +4,13 @@ spring:
   security:
     user:
       password: ${eureka.password}
-      
+
 eureka:
   client:
     serviceUrl:
       defaultZone: ${EUREKA_URL:http://user:asdqwe123@localhost:8761}/eureka/
+      registerWithEureka: false
+      fetchRegistry: true
 server:
   port: 8080
 zuul:
@@ -21,12 +23,6 @@ zuul:
     acessor-management-service:
       path: /user/**
       serviceId: acessor-management-service
-ribbon:
-  ConnectTimeout: 30000
-  ReadTimeout: 990000
-  maxAutoRetries: 1
-  MaxAutoRetriesNextServer: 2
-
 ---
 spring:
   profiles: heroku
