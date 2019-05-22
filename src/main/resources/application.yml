@@ -1,6 +1,10 @@
 spring:
   application:
     name: api-gateway-web
+  security:
+    user:
+      password: ${eureka.password}
+      
 eureka:
   client:
     serviceUrl:
@@ -17,6 +21,11 @@ zuul:
     acessor-management-service:
       path: /user/**
       serviceId: acessor-management-service
+ribbon:
+  ConnectTimeout: 30000
+  ReadTimeout: 990000
+  maxAutoRetries: 1
+  MaxAutoRetriesNextServer: 2
 
 ---
 spring:
