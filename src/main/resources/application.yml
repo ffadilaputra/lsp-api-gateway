@@ -24,10 +24,12 @@ zuul:
       url: https://lsp-tuk-services.herokuapp.com/
     auth-service:
       path: /auth/**
-      serviceId: https://lsp-auth-service.herokuapp.com/
-    acessor-management-service:
-      path: /user/**
-      serviceId: acessor-management-service
+      url: http://localhost:8124/users/login
+    account-service:
+      path: /account/**
+      url: http://localhost:8123/
+  sensitive-headers: Cookie,Set-Cookie
+
 ---
 spring:
   profiles: heroku
