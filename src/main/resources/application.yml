@@ -16,19 +16,34 @@ eureka:
 server:
   port: 8080
 zuul:
+  sensitive-headers: Cookie,Set-Cookie
   ignored-services: '*'
   prefix: /api
   routes:
-    tuk-management-service:
-      path: /management/**
-      url: https://lsp-tuk-services.herokuapp.com/
-    auth-service:
-      path: /auth/**
-      url: http://localhost:8124/users/login
+    admin-service:
+      path: /admin/**
+      url: http://localhost:8780/users
     account-service:
       path: /account/**
       url: http://localhost:8123/
-  sensitive-headers: Cookie,Set-Cookie
+    manage-service:
+      path: /manage/**
+      url: https://lsp-tuk-services.herokuapp.com/
+    pemohon-service:
+      path: /pemohon/**
+      url: https://lsp-admin.herokuapp.com/users
+    berkas-service:
+      path: /berkas/**
+      url: http://localhost:8789/berkas
+    pekerjaan-service:
+      path: /pekerjaan/**
+      url: http://localhost:8790/pekerjaan
+    relevansi-service:
+      path: /relevansi/**
+      url: http://localhost:8799/relevansi
+    asesmen-service:
+      path: /asesi/**
+      url: http://localhost:8783/asesmen
 
 ---
 spring:
